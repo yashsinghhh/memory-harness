@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+.DS_Store
+.vscode/
+.idea/
+
+# Local data — the corpus and the stores are reproducible, and large.
+corpus/
+data/
+*.lance/
+*.kuzu/
+*.db
+*.sqlite3
+
+# NOTE: Docs/ and reading_material/ are deliberately TRACKED.
+# On the previous project they were gitignored, which left ~3,400 lines of
+# planning, decisions, and measured numbers with no backup anywhere. EVAL_LOG.md
+# in particular is a deliverable, not a scratch file.
+Docs/*
+reading_material/*
+CLAUDE.md
