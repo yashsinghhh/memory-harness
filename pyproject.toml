@@ -1,0 +1,37 @@
+[project]
+name = "memory-harness"
+version = "0.1.0"
+description = "A memory layer: corpus in, knowledge graph and vectors out, retrieval measured."
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+    "pyright>=1.1.380",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E,F = pyflakes + pycodestyle · I = import sorting · UP = pyupgrade
+# B = bugbear (real bug patterns) · ASYNC = async footguns
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.12"
+# strict is deliberate: a Protocol without a type checker is documentation, not enforcement.
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# auto: async tests need no @pytest.mark.asyncio decorator
+asyncio_mode = "auto"
+addopts = "-q"
