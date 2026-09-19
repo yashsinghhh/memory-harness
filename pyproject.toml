@@ -3,7 +3,12 @@ name = "memory-harness"
 version = "0.1.0"
 description = "A memory layer: corpus in, knowledge graph and vectors out, retrieval measured."
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = [
+    "typer>=0.27.2",
+]
+
+[project.scripts]
+mh = "src.cli:app"
 
 [dependency-groups]
 dev = [
